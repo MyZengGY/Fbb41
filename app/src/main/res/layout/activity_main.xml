@@ -19,7 +19,8 @@
         android:background="@color/colorAccentTrans"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_widthPercent="0%">
+        app:layout_widthPercent="0%"
+        >
         <include
             android:id="@+id/llSignupContent_"
             layout="@layout/activity_lostpassword"
@@ -91,7 +92,6 @@
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:ems="1"
                  />
 
             <include

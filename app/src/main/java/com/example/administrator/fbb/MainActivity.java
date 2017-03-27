@@ -1,5 +1,6 @@
 package com.example.administrator.fbb;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -104,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initmis() {
-        lgTilPhone.setErrorEnabled(true);
-        lgTilPw.setErrorEnabled(true);
-    }
-
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
@@ -197,8 +193,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Animation clockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_right_to_left);
-                if (isSigninScreen)
-                    btnSignup.startAnimation(clockwise);
+                if (isSigninScreen){btnSignup.startAnimation(clockwise);}
+                Intent intent=new Intent(MainActivity.this,JhActivity.class);
+                startActivity(intent);
             }
         });
         btnSignin.setOnClickListener(new View.OnClickListener() {
@@ -207,8 +204,11 @@ public class MainActivity extends AppCompatActivity {
                 Animation clockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_right_to_left);
                 if (isSigninScreen == false){
                     btnSignin.startAnimation(clockwise);}
-                initmis();
+                Intent intent=new Intent(MainActivity.this,JhActivity.class);
+                startActivity(intent);
+                finish();
             }
+
         });
         lg_lost_pw.setOnClickListener(new View.OnClickListener() {//找回密码跳转
             @Override
@@ -220,7 +220,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 lostBack();
-
+                Intent intent=new Intent(MainActivity.this,JhActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -241,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void lostBack() {
+
         percentRL.setVisibility(View.VISIBLE);
         image_bg.setVisibility(View.VISIBLE);
         lgPhone.setFocusable(true);
