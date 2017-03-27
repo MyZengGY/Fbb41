@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">OnePageSigninSignup</string>
+    <string name="app_name">粉宝宝</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
 </resources>

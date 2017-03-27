@@ -1,4 +1,4 @@
-package com.example.administrator.fbb;
+package com.example.administrator.fbb.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,12 +20,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.fbb.R;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity {
-    @InjectView(R.id.lp_back)
-    ImageView lpBack;
     @InjectView(R.id.lp_phone)
     TextInputEditText lpPhone;
     @InjectView(R.id.lp_text_code)
@@ -220,9 +220,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 lostBack();
-                Intent intent=new Intent(MainActivity.this,JhActivity.class);
-                startActivity(intent);
-                finish();
+
             }
         });
     }
