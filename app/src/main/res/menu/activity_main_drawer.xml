@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@mipmap/ic_launcher"
+            android:title="我的消息"/>
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@mipmap/ic_launcher"
+            android:title="个人资料"/>
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@mipmap/ic_launcher"
+            android:title="发布任务"/>
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@mipmap/ic_launcher"
+            android:title="任务管理"/>
+        <item
+            android:id="@+id/nav_jbzz"
+            android:icon="@mipmap/ic_launcher"
+            android:title="金币管理"/>
+    </group>
+
+    <item android:title="说明">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@mipmap/ic_launcher"
+                android:title="关于我们"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@mipmap/ic_launcher"
+                android:title="等级说明"/>
+        </menu>
+    </item>
+</menu>

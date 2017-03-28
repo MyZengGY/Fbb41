@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         >
         <activity android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppThemeGo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -19,6 +19,22 @@
         <activity android:name=".activity.JhActivity"
             android:theme="@style/AppTheme.jh">
         </activity>
+        <activity android:name=".activity.AccountActivity"
+            android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.DataActivity"
+            android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.TaskActivity"
+            android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.ImageActivity"
+            android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.MsgActivity"
+            android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.GrdataActivity"
+            android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.VipActivity"
+        android:theme="@style/AppTheme.jh"></activity>
+        <activity android:name=".activity.UserActivity"
+            android:theme="@style/AppTheme.jh"></activity>
     </application>
 
 </manifest>
