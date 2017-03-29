@@ -134,7 +134,7 @@ public class JhActivity extends ActionBarActivity {
                         startActivity(in2);
                         break;
                     case R.id.nav_manage:
-                        Intent in3=new Intent(JhActivity.this,AccountActivity2.class);
+                        Intent in3=new Intent(JhActivity.this,AccountActivity1.class);
                         startActivity(in3);
                         break;
                     case R.id.nav_jbzz:

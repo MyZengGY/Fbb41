@@ -36,11 +36,13 @@
             android:theme="@style/AppTheme.jh"></activity>
         <activity android:name=".activity.PassworkActivity2"
             android:theme="@style/AppTheme.jh"></activity>
-        <activity android:name=".activity.AccountActivity2"
+        <activity android:name=".activity.AccountActivity1"
             android:theme="@style/AppTheme.jh"></activity>
         <activity android:name=".activity.ExtendActivity2"
             android:theme="@style/AppTheme.jh">
         </activity>
+        <activity android:name=".activity.CityActivity3"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert"></activity>
     </application>
 
 </manifest>
