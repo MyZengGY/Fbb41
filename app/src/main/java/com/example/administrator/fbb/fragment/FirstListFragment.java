@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.administrator.fbb.R;
-import com.example.administrator.fbb.adapter.MyAdapter;
+import com.example.administrator.fbb.adapter.First_Fragment_MyAdapter;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class FirstListFragment extends Fragment {
 private RecyclerView recyclerView_jh;
-    private MyAdapter mAdapter;
+    private First_Fragment_MyAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public static FirstListFragment newInstance(int index) {
         FirstListFragment f = new FirstListFragment();
@@ -45,7 +45,7 @@ private RecyclerView recyclerView_jh;
         for (int i = 0; i < 20; i++) {
             list.add("1");
         }
-        mAdapter = new MyAdapter(list);
+        mAdapter = new First_Fragment_MyAdapter(list);
         recyclerView_jh.setAdapter(mAdapter);
         return view;
     }

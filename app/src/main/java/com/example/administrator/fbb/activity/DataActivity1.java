@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by Administrator on 2017/3/27 0027.
  */
 
-public class DataActivity extends AppCompatActivity {
+public class DataActivity1 extends AppCompatActivity {
     ListView data_Listview;
     ArrayList<String> list1=new ArrayList<>();
     ArrayList<String> list=new ArrayList<>();
@@ -34,29 +34,31 @@ public class DataActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                 case 0:
-                Intent in0=new Intent(DataActivity.this,GrdataActivity.class);
+                Intent in0=new Intent(DataActivity1.this,GrdataActivity2.class);
                 startActivity(in0);
                 break;
                 case 1:
-                    Intent in1=new Intent(DataActivity.this,VipActivity.class);
+                    Intent in1=new Intent(DataActivity1.this,VipActivity2.class);
                     startActivity(in1);
                 break;
                 case 2:
-                    Intent in2=new Intent(DataActivity.this,UserActivity.class);
+                    Intent in2=new Intent(DataActivity1.this,UserActivity2.class);
                     startActivity(in2);
                         break;
                  case 3:
 
                         break;
                  case 4:
-
+                     Intent in4=new Intent(DataActivity1.this, ExtendActivity2.class);
+                     startActivity(in4);
                         break;
                  case 5:
-
+                     Intent in5=new Intent(DataActivity1.this,PassworkActivity2.class);
+                     startActivity(in5);
                         break;
 
                 }
-                Toast.makeText(DataActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DataActivity1.this, "position:" + position, Toast.LENGTH_SHORT).show();
             }
         });
     }

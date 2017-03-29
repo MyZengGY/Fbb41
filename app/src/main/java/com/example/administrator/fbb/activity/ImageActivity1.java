@@ -10,7 +10,7 @@ import com.example.administrator.fbb.R;
  * Created by Administrator on 2017/3/27 0027.
  */
 
-public class ImageActivity extends AppCompatActivity{
+public class ImageActivity1 extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

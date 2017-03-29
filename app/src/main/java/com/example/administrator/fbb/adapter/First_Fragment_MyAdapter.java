@@ -15,9 +15,9 @@ import java.util.List;
  * Created by Administrator on 2017/3/27 0027.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class First_Fragment_MyAdapter extends RecyclerView.Adapter<First_Fragment_MyAdapter.ViewHolder> {
     public List<String> datas = new ArrayList();
-    public MyAdapter(ArrayList<String> datas) {
+    public First_Fragment_MyAdapter(ArrayList<String> datas) {
         this.datas = datas;
     }
     //创建新View，被LayoutManager所调用

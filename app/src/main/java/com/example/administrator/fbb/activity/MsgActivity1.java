@@ -10,10 +10,10 @@ import com.example.administrator.fbb.R;
  * Created by Administrator on 2017/3/27 0027.
  */
 
-public class AccountActivity extends AppCompatActivity{
+public class MsgActivity1 extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.activity_mag);
     }
 }

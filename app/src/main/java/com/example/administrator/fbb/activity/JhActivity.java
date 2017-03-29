@@ -8,7 +8,6 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -26,7 +25,6 @@ import com.example.administrator.fbb.fragment.FirstListFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Administrator on 2017/3/21 0021.
@@ -113,7 +111,7 @@ public class JhActivity extends ActionBarActivity {
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(JhActivity.this,ImageActivity.class);
+                Intent in=new Intent(JhActivity.this,ImageActivity1.class);
                 startActivity(in);
             }
         });
@@ -124,19 +122,19 @@ public class JhActivity extends ActionBarActivity {
                 //在这里处理item的点击事件
                 switch (item.getItemId()){
                     case R.id.nav_camera:
-                        Intent in=new Intent(JhActivity.this,MsgActivity.class);
+                        Intent in=new Intent(JhActivity.this,MsgActivity1.class);
                         startActivity(in);
                         break;
                     case R.id.nav_gallery:
-                        Intent in1=new Intent(JhActivity.this,DataActivity.class);
+                        Intent in1=new Intent(JhActivity.this,DataActivity1.class);
                         startActivity(in1);
                         break;
                     case R.id.nav_slideshow:
-                        Intent in2=new Intent(JhActivity.this,TaskActivity.class);
+                        Intent in2=new Intent(JhActivity.this,TaskActivity1.class);
                         startActivity(in2);
                         break;
                     case R.id.nav_manage:
-                        Intent in3=new Intent(JhActivity.this, AccountActivity.class);
+                        Intent in3=new Intent(JhActivity.this,AccountActivity2.class);
                         startActivity(in3);
                         break;
                     case R.id.nav_jbzz:
