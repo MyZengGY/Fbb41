@@ -2,4 +2,8 @@
     <string name="app_name">粉宝宝</string>
     <string name="open">打开</string>
     <string name="close">关闭</string>
+    <string name="diyibu">第一步：登录你的支付宝直接付款给收款支付宝账号，备注请填写你的用户名，有问题请找客服。</string>
+    <string name="dierbu">第二部：付款成功后请复制交易明细的订单交易号输入，注意是订单交易号，交易号，交易号，一般是32位的数字编号。</string>
+    <string name="zhu">注：订单交易号在支付宝账单详细页面，点击"创建时间"然后复制订单交易号！</string>
+    <string name="wxts">温馨提示：每日只能体现一次，每次提现最高兑换1万金币，如需更改账户信息，请联系客服</string>
 </resources>

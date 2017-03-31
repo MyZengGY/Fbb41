@@ -20,11 +20,15 @@
         <item
             android:id="@+id/nav_jbzz"
             android:icon="@mipmap/ic_launcher"
-            android:title="金币管理"/>
+            android:title="金币兑换"/>
     </group>
 
     <item android:title="说明">
         <menu>
+            <item
+                android:id="@+id/nav_aaa"
+                android:icon="@mipmap/ic_launcher"
+                android:title="等级说明"/>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@mipmap/ic_launcher"
@@ -32,7 +36,7 @@
             <item
                 android:id="@+id/nav_send"
                 android:icon="@mipmap/ic_launcher"
-                android:title="等级说明"/>
+                android:title="联系我们"/>
         </menu>
     </item>
 </menu>

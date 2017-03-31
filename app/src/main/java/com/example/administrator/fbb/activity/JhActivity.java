@@ -138,10 +138,20 @@ public class JhActivity extends ActionBarActivity {
                         startActivity(in3);
                         break;
                     case R.id.nav_jbzz:
+                        Intent in4=new Intent(JhActivity.this,GoldActivity1.class);
+                        startActivity(in4);
+                        break;
+                    case R.id.nav_aaa:
+                        Intent in5=new Intent(JhActivity.this,RankActivity1.class);
+                        startActivity(in5);
                         break;
                     case R.id.nav_share:
+                        Intent in6=new Intent(JhActivity.this,MymsgActivity1.class);
+                        startActivity(in6);
                         break;
                     case R.id.nav_send:
+                        Intent in7=new Intent(JhActivity.this,CallmeActivity1.class);
+                        startActivity(in7);
                         break;
 
                 }
