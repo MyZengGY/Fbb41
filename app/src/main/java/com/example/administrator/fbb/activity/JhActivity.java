@@ -52,6 +52,7 @@ public class JhActivity extends ActionBarActivity {
     private long firstTime = 0;
     //声明相关变量
     private Toolbar toolbar;
+    private Boolean mDrawer=false;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private String[] lvs = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
@@ -91,6 +92,10 @@ public class JhActivity extends ActionBarActivity {
         // TODO Auto-generated method stub
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
+                if(mDrawer){
+                    mDrawerLayout.closeDrawers();
+                    return true;
+                }else {
                 long secondTime = System.currentTimeMillis();
                 if (secondTime - firstTime > 2000) {                                         //如果两次按键时间间隔大于2秒，则不退出
                     Toast.makeText(this, "再次点击退出程序", Toast.LENGTH_SHORT).show();
@@ -98,7 +103,7 @@ public class JhActivity extends ActionBarActivity {
                     return true;
                 } else {                                                    //两次按键小于2秒时，退出应用
                     System.exit(0);
-                }
+                }}
                 break;
         }
         return super.onKeyUp(keyCode, event);
@@ -151,11 +156,13 @@ public class JhActivity extends ActionBarActivity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
+                mDrawer=true;
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
+                mDrawer=false;
             }
         };
         mDrawerToggle.syncState();
@@ -223,6 +230,7 @@ public class JhActivity extends ActionBarActivity {
         verticalScrollTV = (AutoVerticalScrollTextView) findViewById(R.id.textview_auto_roll);
         verticalScrollTV.setText(strings[0]);
 
+
         new Thread() {
             @Override
             public void run() {
@@ -262,6 +270,7 @@ public class JhActivity extends ActionBarActivity {
         adapter.addFragment(FirstListFragment.newInstance(2), "微博");
         adapter.addFragment(FirstListFragment.newInstance(3), "淘宝");
         adapter.addFragment(FirstListFragment.newInstance(4), "其他");
+
         viewpager.setAdapter(adapter);
     }
 

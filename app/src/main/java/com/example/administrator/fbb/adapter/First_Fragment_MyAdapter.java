@@ -17,9 +17,13 @@ import java.util.List;
 
 public class First_Fragment_MyAdapter extends RecyclerView.Adapter<First_Fragment_MyAdapter.ViewHolder> {
     public List<String> datas = new ArrayList();
-    public First_Fragment_MyAdapter(ArrayList<String> datas) {
+    private int hh;
+
+    public First_Fragment_MyAdapter(List<String> datas, int hh) {
         this.datas = datas;
+        this.hh = hh;
     }
+
     //创建新View，被LayoutManager所调用
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -28,9 +32,37 @@ public class First_Fragment_MyAdapter extends RecyclerView.Adapter<First_Fragmen
         return vh;
     }
     //将数据与界面进行绑定的操作
+
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
-//        viewHolder.mTextView.setText(datas.get(position));
+    public void onBindViewHolder(ViewHolder viewHolder,final int position) {
+        datas.clear();
+        switch (hh){
+        case 1:
+            for (int i = 0; i < 20; i++) {
+                datas.add("0");
+            }
+
+        viewHolder.mTextView.setText(datas.get(position));
+            break;
+            case 2:
+                for (int i = 0; i < 20; i++) {
+                    datas.add("1");
+                }
+                viewHolder.mTextView.setText(datas.get(position));
+                break;
+            case 3:
+                for (int i = 0; i < 20; i++) {
+                    datas.add("2");
+                }
+                viewHolder.mTextView.setText(datas.get(position));
+                break;
+            case 4:
+                for (int i = 0; i < 20; i++) {
+                    datas.add("3");
+                }
+                viewHolder.mTextView.setText(datas.get(position));
+                break;
+        }
     }
     //获取数据的数量
     @Override
@@ -42,7 +74,7 @@ public class First_Fragment_MyAdapter extends RecyclerView.Adapter<First_Fragmen
         public TextView mTextView;
         public ViewHolder(View view){
             super(view);
-            mTextView = (TextView) view.findViewById(R.id.text);
+            mTextView = (TextView) view.findViewById(R.id.text_title);
         }
     }
 }
