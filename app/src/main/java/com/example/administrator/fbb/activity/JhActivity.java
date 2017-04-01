@@ -13,11 +13,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.example.administrator.fbb.R;
 import com.example.administrator.fbb.adapter.MyPagerAdapter;
 import com.example.administrator.fbb.data.AutoVerticalScrollTextView;
@@ -41,6 +47,8 @@ public class JhActivity extends ActionBarActivity {
     NavigationView navigationView;
     @InjectView(R.id.dl_left)
     DrawerLayout dlLeft;
+    @InjectView(R.id.text_jh_city)
+    TextView textJhCity;
     private long firstTime = 0;
     //声明相关变量
     private Toolbar toolbar;
@@ -52,6 +60,32 @@ public class JhActivity extends ActionBarActivity {
     private String gg = "公告:";
     private String[] strings = {gg + "我的剑，就是你的剑!", gg + "俺也是从石头里蹦出来得!", gg + "我用双手成就你的梦想!", gg + "人在塔在!", gg + "犯我德邦者，虽远必诛!", gg + "我会让你看看什么叫残忍!", gg + "我的大刀早已饥渴难耐了!"};
     private AutoVerticalScrollTextView verticalScrollTV;
+    public AMapLocationClient mLocationClient = null;
+    public AMapLocationClientOption mLocationOption = null;
+    //声明定位回调监听器
+    public AMapLocationListener mLocationListener = new AMapLocationListener() {
+        @Override
+        public void onLocationChanged(AMapLocation aMapLocation) {
+            if (aMapLocation != null) {
+                if (aMapLocation.getErrorCode() == 0) {
+//可在其中解析amapLocation获取相应内容。
+                    Log.e("城市", aMapLocation.getCity());
+                    aMapLocation.getProvince();//省信息
+                    aMapLocation.getCity();//城市信息
+                    textJhCity.setText(aMapLocation.getProvince()+" "+aMapLocation.getCity());
+                } else {
+                    //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
+                    Log.e("AmapError", "location Error, ErrCode:"
+                            + aMapLocation.getErrorCode() + ", errInfo:"
+                            + aMapLocation.getErrorInfo());
+                }
+            }
+
+
+        }
+    };
+
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
@@ -69,6 +103,7 @@ public class JhActivity extends ActionBarActivity {
         }
         return super.onKeyUp(keyCode, event);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +113,29 @@ public class JhActivity extends ActionBarActivity {
         findViews(); //获取控件
         tab_viewPager();
         initTND();
+        initLocation();
+    }
+
+    private void initLocation() {
+//初始化定位
+        mLocationClient = new AMapLocationClient(getApplicationContext());
+//设置定位回调监听
+        mLocationClient.setLocationListener(mLocationListener);
+        //初始化AMapLocationClientOption对象
+        mLocationOption = new AMapLocationClientOption();
+//设置定位模式为AMapLocationMode.Battery_Saving，低功耗模式。
+        mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Battery_Saving);
+//获取一次定位结果：
+//该方法默认为false。
+        mLocationOption.setOnceLocation(true);
+
+//获取最近3s内精度最高的一次定位结果：
+//设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
+        mLocationOption.setOnceLocationLatest(true);
+        mLocationClient.setLocationOption(mLocationOption);
+//启动定位
+        mLocationClient.startLocation();
+
 
     }
 
@@ -111,7 +169,7 @@ public class JhActivity extends ActionBarActivity {
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(JhActivity.this,ImageActivity1.class);
+                Intent in = new Intent(JhActivity.this, ImageActivity1.class);
                 startActivity(in);
             }
         });
@@ -120,37 +178,37 @@ public class JhActivity extends ActionBarActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 //在这里处理item的点击事件
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.nav_camera:
-                        Intent in=new Intent(JhActivity.this,MsgActivity1.class);
+                        Intent in = new Intent(JhActivity.this, MsgActivity1.class);
                         startActivity(in);
                         break;
                     case R.id.nav_gallery:
-                        Intent in1=new Intent(JhActivity.this,DataActivity1.class);
+                        Intent in1 = new Intent(JhActivity.this, DataActivity1.class);
                         startActivity(in1);
                         break;
                     case R.id.nav_slideshow:
-                        Intent in2=new Intent(JhActivity.this,TaskActivity1.class);
+                        Intent in2 = new Intent(JhActivity.this, TaskActivity1.class);
                         startActivity(in2);
                         break;
                     case R.id.nav_manage:
-                        Intent in3=new Intent(JhActivity.this,AccountActivity1.class);
+                        Intent in3 = new Intent(JhActivity.this, AccountActivity1.class);
                         startActivity(in3);
                         break;
                     case R.id.nav_jbzz:
-                        Intent in4=new Intent(JhActivity.this,GoldActivity1.class);
+                        Intent in4 = new Intent(JhActivity.this, GoldActivity1.class);
                         startActivity(in4);
                         break;
                     case R.id.nav_aaa:
-                        Intent in5=new Intent(JhActivity.this,RankActivity1.class);
+                        Intent in5 = new Intent(JhActivity.this, RankActivity1.class);
                         startActivity(in5);
                         break;
                     case R.id.nav_share:
-                        Intent in6=new Intent(JhActivity.this,MymsgActivity1.class);
+                        Intent in6 = new Intent(JhActivity.this, MymsgActivity1.class);
                         startActivity(in6);
                         break;
                     case R.id.nav_send:
-                        Intent in7=new Intent(JhActivity.this,CallmeActivity1.class);
+                        Intent in7 = new Intent(JhActivity.this, CallmeActivity1.class);
                         startActivity(in7);
                         break;
 

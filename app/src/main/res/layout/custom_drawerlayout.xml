@@ -19,7 +19,8 @@
                 android:layout_height="match_parent"
                 android:background="#92c8ff"
                 android:gravity="center"
-                android:text="成都"
+                android:id="@+id/text_jh_city"
+                android:text=""
                 android:textColor="#000"/>
         <com.example.administrator.fbb.data.AutoVerticalScrollTextView
             android:layout_width="match_parent"
